@@ -1,0 +1,39 @@
+<%- include('partials/header'); -%>
+
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Title" name="title">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Description" name="description">
+                            </div>
+                            <button class="btn btn-sucess btn-outline-primary" type="submit"
+                                id="button-addon2">ACEPTAR</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- DATABASE TABLE -->
+            <div class="col-md-7">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer'); -%>
