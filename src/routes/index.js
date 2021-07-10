@@ -9,10 +9,10 @@ router.get('/', (req, res) => {
 
 router.post('/add', async (req, res) => {
     // console.log("Adding to database...");
-    const title = req.body.title;
+    const title = req.body.to;
     console.log(`Description: ${title}`);
 
-    const carga = new Carga();
+    const carga = new Carga(req.body);
     await carga.save();
 
     res.redirect('/');

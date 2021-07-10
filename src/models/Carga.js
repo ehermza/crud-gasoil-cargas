@@ -9,4 +9,4 @@ const cargaSchema = new Schema({
     created_at: { type: Date, default: Date.now() }
 });
 
-module.exports = model('Carga', cargaSchema);
+module.exports = model('carga', cargaSchema);
