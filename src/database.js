@@ -1,6 +1,6 @@
 const mongo = require('mongoose');
 
-mongo.connect('mongodb://localhost/ad530pr', {
+mongo.connect('mongodb://localhost/ecosport', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
