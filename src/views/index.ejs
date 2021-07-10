@@ -12,14 +12,14 @@
                                     <option value="COSA">COMERCIAL OESTE SA</option>
                                     <option value="Cf">CONSUMIDOR FINAL</option>
                                     <option value="Otros">Otros</option>
-                                  </select>
+                                </select>
                             </div>
-                            <div class="input-group mb-3"> 
-                                <span class="input-group-text">Litros: </span>                                
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Litros: </span>
                                 <input type="text" class="form-control" placeholder="000.00" name="liters">
                             </div>
-                            <div class="input-group mb-3"> 
-                                <span class="input-group-text">Total $</span>                                
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Total $</span>
                                 <input type="text" class="form-control" placeholder="Precio Final" name="price">
                             </div>
                             <button class="btn btn-sucess btn-outline-primary" type="submit"
@@ -40,7 +40,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <% cargas.forEach(function (tl) { %>
+                            <tr>
+                                <td>
+                                    <%= tl._id %>
+                                </td>
+                            </tr>
+                            <% }); %>
                     </tbody>
                 </table>
             </div>

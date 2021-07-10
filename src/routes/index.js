@@ -3,14 +3,13 @@ const Carga = require("../models/Carga");
 
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.render('index');
+router.get('/', async(req, res) => {
+    const cargas = await Carga.find();
+    res.render('index', { cargas:cargas });
 });
 
 router.post('/add', async (req, res) => {
-    // console.log("Adding to database...");
-    const title = req.body.to;
-    console.log(`Description: ${title}`);
+    console.log("Adding to database...");
 
     const carga = new Carga(req.body);
     await carga.save();
@@ -18,10 +17,13 @@ router.post('/add', async (req, res) => {
     res.redirect('/');
 });
 
-router.get('/:id', (req, res) => {
-    const { id } = req.params;
-    const carga = Carga.findOne(id);
-    console.log('id: ' + carga);
+router.get('/:getid', async(req, res,next) => {
+    const { getid } = req.params;
+    const carga = await Carga.findOne(getid);
+    console.log(`/${getid}`);
+    console.log('get Litros: ' + carga.liters);
+    res.redirect('/');
+
 });
 
 module.exports = router;
