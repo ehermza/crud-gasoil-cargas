@@ -22,7 +22,7 @@
                                 <span class="input-group-text">Total $</span>
                                 <input type="text" class="form-control" placeholder="Precio Final" name="price">
                             </div>
-                            <button class="btn btn-sucess btn-outline-primary" type="submit"
+                            <button class="btn btn-block btn-outline-primary" type="submit"
                                 id="button-addon2">ACEPTAR</button>
 
                         </form>
@@ -35,15 +35,20 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Title</th>
-                            <th>Description</th>
+                            <th>Litros</th>
+                            <th>Fecha</th>
+                            <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <% cargas.forEach(function (tl) { %>
                             <tr>
+                                <td><%= tl._id %></td>
+                                <td><%= tl.liters %></td>
+                                <td><%= format(tl.created_at) %></td>
                                 <td>
-                                    <%= tl._id %>
+                                    <a href="/delete/<%= tl._id %>" class="btn btn-outline-danger">Delete</a>
                                 </td>
                             </tr>
                             <% }); %>

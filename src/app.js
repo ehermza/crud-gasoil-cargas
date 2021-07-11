@@ -1,6 +1,8 @@
 const express =require("express");
 const path= require ('path');
 const morgan = require('morgan');
+// const {format} = require('timeago.js')
+const {format} = require('timeago.js')
 
 const IndexRoutes= require("./routes/index");
 
@@ -18,6 +20,11 @@ app.use(morgan('dev'));
     // Que express() pueda entender datos enviados por form. (extended:false Without images)
 app.use(express.urlencoded({extended: false})); 
 
+// Globals variables
+app.use((req,res,next)=>{
+    app.locals.format = format;
+    next();
+});
 
 // importing routes
 app.use('/', IndexRoutes);

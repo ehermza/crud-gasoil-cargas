@@ -17,13 +17,20 @@ router.post('/add', async (req, res) => {
     res.redirect('/');
 });
 
+router.get('/delete/:getid', async(req, res,next) => {
+    const { getid } = req.params;
+     const carga = await Carga.findByIdAndDelete(getid);
+    console.log(`Delete object: /${getid}`);
+
+    res.redirect('/');
+});
+
 router.get('/:getid', async(req, res,next) => {
     const { getid } = req.params;
     const carga = await Carga.findOne(getid);
-    console.log(`/${getid}`);
-    console.log('get Litros: ' + carga.liters);
-    res.redirect('/');
+    console.log(`Get object: /${getid}`);
 
+    res.redirect('/');
 });
 
 module.exports = router;
