@@ -35,16 +35,16 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Title</th>
-                            <th>Description</th>
+                            <th>Litros</th>
+                            <th>Fecha</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% cargas.forEach(function (tl) { %>
                             <tr>
-                                <td>
-                                    <%= tl._id %>
-                                </td>
+                                <td><%= tl._id %></td>
+                                <td><%= tl.liters %></td>
+                                <td><%= format(tl.created_at) %></td>
                             </tr>
                             <% }); %>
                     </tbody>
