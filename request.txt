@@ -1,0 +1,12 @@
+
+[X]	/add
+	if ticket_n input has not value, then Generate a random ticket id with stringrandom() module that contains 7 digits.
+	File: routes/index.js
+[X]  /
+    Show a error message when the client try to set a invalidate value. Por example: liters < 1
+    File: routes/index.js 
+
+[ ]	/add 
+	Verify ticket-number before confirm the add action, if "ticket_n" exists on database, don't save the new register.
+	File: routes/index.js	
+
