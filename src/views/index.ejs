@@ -36,6 +36,9 @@
                         </form>
                     </div>
                 </div>
+                <% if (status!="") { %>
+                    <div class="p-1 mb-2 bg-danger text-white"><%= status %></div>
+                    <% } %>
             </div>
             <!-- DATABASE TABLE -->
             <div class="col-md-7">
@@ -57,7 +60,7 @@
                                 <td><%= tl.n_ticket %></td>
                                 <td><%= tl.liters %>L</td>
                                 <td><%= tl.weekofyear %>/52</td>
-                                <td><%= format(tl.created_at) %></td>
+                                <td><%= dformat(tl.date_charge, "d mmmm, yyyy") %></td>
                                 <td>
                                     <a href="/delete/<%= tl._id %>" class="btn btn-outline-danger">Delete</a>
                                 </td>

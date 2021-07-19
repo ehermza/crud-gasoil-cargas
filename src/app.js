@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require('path');
 const morgan = require('morgan');
-// const {format} = require('timeago.js')
-const { format } = require('timeago.js')
+// const { format } = require('timeago.js');
+const dateFormat = require("dateformat");
 
 const IndexRoutes = require("./routes/index");
 const ResolveRoutes = require("./routes/resolve");
@@ -21,7 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // Globals variables
 app.use((req, res, next) => {
-    app.locals.format = format;
+    // app.locals.format = format;
+    app.locals.dformat = dateFormat;
     next();
 });
 

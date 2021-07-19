@@ -13,14 +13,18 @@ router.get('/week', function () {
     console.log('Week of year: ' + week); // Sun
 });
 
-router.get('/', async function (req, res) 
-{
+router.get('/', async function (req, res) {
     const cargas = await Carga.find();
     var mensaje = "";
-    if(req.query.status =='not_liters') {
-        mensaje = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
-        console.log('Lorem ipsum dolor sit amet consectetur adipisicing elit. ');
+    switch (req.query.status) {
+        case 'not_liters':
+            mensaje = 'Error: Valor de LITROS inválido.\n Try again!';
+            break;
+        case 'deleted':
+            mensaje = 'El registro se ha borrado con éxito!';
+            break;
     }
+    console.log(mensaje);
     res.render('index', { cargas: cargas, status: mensaje });
 });
 
@@ -28,23 +32,23 @@ router.post('/add', async function (req, res) {
     console.log("Adding to database...");
 
     const carga = new Carga(req.body);
-    const litros= req.body.liters;
-    if(litros<1) {        
+    const litros = req.body.liters;
+    if (litros < 1) {
         res.redirect('/?status=not_liters');
         // ('/', {info: "the liters value is incorrect. Please, try again."});
         return;
     }
-    const byliter = req.body.price/litros
+    const byliter = req.body.price / litros
     carga.price_byliter = (Math.round(byliter * 100) / 100).toFixed(2);
     if (carga.n_ticket.trim() == "") {
         carga.n_ticket = randomstring.generate(7);
     }
-    carga.weekofyear = weekNumber(carga.date_charge);    
+    carga.weekofyear = weekNumber(carga.date_charge);
     console.log(carga);
 
     await carga.save();
 
-    res.redirect('/', {info:""});
+    res.redirect('/');
 });
 
 router.get('/delete/:getid', async (req, res, next) => {
@@ -52,7 +56,7 @@ router.get('/delete/:getid', async (req, res, next) => {
     const carga = await Carga.findByIdAndDelete(getid);
     console.log(`Delete object: /${getid}`);
 
-    res.redirect('/');
+    res.redirect('/?status=deleted');
 });
 
 router.get('/charge/:getid', async (req, res, next) => {
