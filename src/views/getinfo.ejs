@@ -1,0 +1,36 @@
+<%- include('partials/header'); -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/" method="GET">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Litros</span>
+                            <input type="text" class="form-control" value="<%= info.liters %>" name="liters" readonly />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Weeks</span>
+                            <input type="text" class="form-control" value="<%= info.weeks %>" name="weeks" readonly />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Kilometros</span>
+                            <input type="text" class="form-control" name="kilometers"  value="<%= info.kilometers %>" readonly />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Litros/Week</span>
+                            <input type="text" class="form-control" name="litersPerWeek" value="<%= info.litersPerWeek %>" readonly/>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Kms/Litro</span>
+                            <input type="text" class="form-control" name="kmsPerLiter" value="<%= info.kmsPerLiter %>" readonly />
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">VOLVER</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer'); -%>

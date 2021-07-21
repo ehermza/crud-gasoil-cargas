@@ -36,8 +36,12 @@
                         </form>
                     </div>
                 </div>
-                <% if (status!="") { %>
-                    <div class="p-1 mb-2 bg-danger text-white"><%= status %></div>
+                <% if (status.indexOf('Error')!=-1) { %>
+                        <div class="alert alert-dismissible alert-danger">                        
+                            <%= status %></div>
+                    <% } else if(status.indexOf('éxito')!=-1) { %>
+                        <div class="alert alert-dismissible alert-success">                        
+                            <%= status %></div>
                     <% } %>
             </div>
             <!-- DATABASE TABLE -->

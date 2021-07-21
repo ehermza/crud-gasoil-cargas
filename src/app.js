@@ -5,12 +5,12 @@ const morgan = require('morgan');
 const dateFormat = require("dateformat");
 
 const IndexRoutes = require("./routes/index");
-const ResolveRoutes = require("./routes/resolve");
+const InfoRoutes = require("./routes/getinfo");
 
 const app = express();
 
 // Initialize...
-app.set('port', 3000);
+app.set('port', 9896);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname + "/views"));
 
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 
 // importing routes
 app.use('/', IndexRoutes);
-app.use('/resolve/', ResolveRoutes);
+app.use('/', InfoRoutes);
 
 // local variables
 require('./database');

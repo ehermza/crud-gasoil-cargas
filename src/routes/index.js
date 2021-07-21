@@ -18,7 +18,7 @@ router.get('/', async function (req, res) {
     var mensaje = "";
     switch (req.query.status) {
         case 'not_liters':
-            mensaje = 'Error: Valor de LITROS inválido.\n Try again!';
+            mensaje = 'Error: valor de LITROS inválido.\n Try again!';
             break;
         case 'deleted':
             mensaje = 'El registro se ha borrado con éxito!';
