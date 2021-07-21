@@ -10,7 +10,7 @@ const InfoRoutes = require("./routes/getinfo");
 const app = express();
 
 // Initialize...
-app.set('port', 9896);
+app.set('port', 4698);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname + "/views"));
 
